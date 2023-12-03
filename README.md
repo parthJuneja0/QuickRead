@@ -16,7 +16,7 @@ QuickRead is a React-based web application that displays the latest news article
 
 - React
 - NewsAPI
-- [Other libraries you've used]
+- Bootstrap
 
 ## Usage
 
