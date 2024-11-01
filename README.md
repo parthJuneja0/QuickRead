@@ -4,7 +4,7 @@ QuickRead is a React-based web application that displays the latest news article
 
 ## Features
 
-- **NewsAPI Integration:** QuickRead utilizes NewsAPI to fetch and display the latest news articles, providing users with up-to-date information.
+- **NewsAPI Integration:** QuickRead utilizes NewsAPI to fetch and display the latest news articles, providing users with up-to-date information. NewsAPI was the first external API I used in this app, which helped me understand the meaning and basics of APIs.
 
 - **User-Friendly Interface:** The application boasts a clean and intuitive design for easy navigation and an enjoyable reading experience.
 
@@ -18,10 +18,19 @@ QuickRead is a React-based web application that displays the latest news article
 - NewsAPI
 - Bootstrap
 
+## Environment Setup
+
+- To set up the environment variables required to access NewsAPI, follow these steps:
+
+1. Create a .env.local file in the root directory of the project.
+2. Add the following content to the .env.local file, replacing yourApiKey with your actual NewsAPI key: `REACT_APP_API_KEY=yourApiKey`
+3. You can obtain an API key by signing up at https://newsapi.org/.
+
 ## Usage
 
 - Deployment of this project was not possible due to restriction set be NewsAPI
-1. Clone the repository: `git clone https://github.com/your-username/QuickRead.git`
+
+1. Clone the repository: `git clone https://github.com/parthJuneja0/QuickRead.git`
 2. Navigate to the project directory: `cd QuickRead`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
@@ -35,4 +44,3 @@ Contributions are welcome! If you'd like to contribute to QuickRead, please foll
 3. Make your changes and commit them: `git commit -m 'Add new feature'`.
 4. Push to the branch: `git push origin feature/new-feature`.
 5. Submit a pull request.
-
