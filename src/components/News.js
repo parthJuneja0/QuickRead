@@ -41,8 +41,8 @@ export class News extends Component {
         this.props.setProgress(50);
         console.log(parsedData);
         this.setState({
-            articles: parsedData.articles,
-            totalResults: parsedData.totalResults,
+            articles: parsedData.articles || [],
+            totalResults: parsedData.totalResults || 0,
             loading: false
         })
         this.props.setProgress(100);
@@ -55,8 +55,8 @@ export class News extends Component {
             let parsedData = await data.json()
             console.log(parsedData);
             this.setState({
-                articles: this.state.articles.concat(parsedData.articles),
-                totalResults: parsedData.totalResults,
+                articles: this.state.articles.concat(parsedData.articles || []),
+                totalResults: parsedData.totalResults || 0,
                 loading: false
             })
             console.log("Articles");
