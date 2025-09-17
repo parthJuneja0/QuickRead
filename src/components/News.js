@@ -11,8 +11,7 @@ export class News extends Component {
             articles: [],
             loading: false,
             totalResults: 0,
-            page: 1,
-            usedArticleIndices: new Set()
+            page: 1
         }
 
         let category = this.props.category[0].toUpperCase() + this.props.category.slice(1);
@@ -46,30 +45,25 @@ export class News extends Component {
             if (parsedData.status === 'error') {
                 console.error('NewsAPI Error:', parsedData.message);
                 // Use mock data if API fails
-                const mockArticles = this.getMockArticles();
                 this.setState({
-                    articles: mockArticles,
+                    articles: this.getMockArticles(),
                     totalResults: 20,
-                    loading: false,
-                    usedArticleIndices: new Set(mockArticles.map((_, index) => index))
+                    loading: false
                 });
             } else {
                 this.setState({
                     articles: parsedData.articles || [],
                     totalResults: parsedData.totalResults || 0,
-                    loading: false,
-                    usedArticleIndices: new Set()
+                    loading: false
                 });
             }
         } catch (error) {
             console.error('Fetch error:', error);
             // Use mock data if fetch fails
-            const mockArticles = this.getMockArticles();
             this.setState({
-                articles: mockArticles,
+                articles: this.getMockArticles(),
                 totalResults: 20,
-                loading: false,
-                usedArticleIndices: new Set(mockArticles.map((_, index) => index))
+                loading: false
             });
         }
         this.props.setProgress(100);
@@ -493,112 +487,45 @@ export class News extends Component {
             } else {
                 // If API fails or no more articles, add more mock data
                 const allMockArticles = this.getMockArticles();
-                const availableIndices = [];
+                const startIndex = (nextPage - 2) * 4; // Calculate which articles to show next
+                const endIndex = startIndex + 4;
+                const moreMockArticles = allMockArticles.slice(startIndex, endIndex);
                 
-                // Find unused articles
-                for (let i = 0; i < allMockArticles.length; i++) {
-                    if (!this.state.usedArticleIndices.has(i)) {
-                        availableIndices.push(i);
-                    }
-                }
-                
-                let finalMockArticles = [];
-                
-                if (availableIndices.length >= 4) {
-                    // Use next 4 unused articles
-                    const selectedIndices = availableIndices.slice(0, 4);
-                    finalMockArticles = selectedIndices.map(index => allMockArticles[index]);
-                    
-                    // Mark these articles as used
-                    const newUsedIndices = new Set(this.state.usedArticleIndices);
-                    selectedIndices.forEach(index => newUsedIndices.add(index));
-                    
-                    this.setState({
-                        articles: this.state.articles.concat(finalMockArticles),
-                        page: nextPage,
-                        totalResults: this.state.articles.length + finalMockArticles.length + (availableIndices.length > 4 ? 20 : 0),
-                        usedArticleIndices: newUsedIndices
-                    });
-                } else if (availableIndices.length > 0) {
-                    // Use remaining unused articles
-                    finalMockArticles = availableIndices.map(index => allMockArticles[index]);
-                    
-                    this.setState({
-                        articles: this.state.articles.concat(finalMockArticles),
-                        page: nextPage,
-                        totalResults: this.state.articles.length + finalMockArticles.length,
-                        usedArticleIndices: new Set([...this.state.usedArticleIndices, ...availableIndices])
-                    });
-                } else {
-                    // All articles used, create variations
-                    finalMockArticles = allMockArticles.slice(0, 4).map((article, index) => ({
+                // If we've run out of unique articles, create variations
+                const finalMockArticles = moreMockArticles.length > 0 ? moreMockArticles : 
+                    allMockArticles.slice(0, 4).map((article, index) => ({
                         ...article,
                         title: `${article.title} - Update ${nextPage}`,
                         url: `#page-${nextPage}-${index}`,
+                        description: `${article.description} - Latest developments from page ${nextPage}.`
                     }));
-                    
-                    this.setState({
-                        articles: this.state.articles.concat(finalMockArticles),
-                        page: nextPage,
-                        totalResults: this.state.articles.length + finalMockArticles.length + 20
-                    });
-                }
+                this.setState({
+                    articles: this.state.articles.concat(finalMockArticles),
+                    page: nextPage,
+                    totalResults: this.state.articles.length + finalMockArticles.length + 20 // Allow more loading
+                });
             }
         } catch (error) {
             console.error('Fetch more data error:', error);
             // If fetch fails, add mock data
             const allMockArticles = this.getMockArticles();
-            const availableIndices = [];
+            const startIndex = (nextPage - 2) * 4;
+            const endIndex = startIndex + 4;
+            const moreMockArticles = allMockArticles.slice(startIndex, endIndex);
             
-            // Find unused articles
-            for (let i = 0; i < allMockArticles.length; i++) {
-                if (!this.state.usedArticleIndices.has(i)) {
-                    availableIndices.push(i);
-                }
-            }
-            
-            let finalMockArticles = [];
-            
-            if (availableIndices.length >= 4) {
-                // Use next 4 unused articles
-                const selectedIndices = availableIndices.slice(0, 4);
-                finalMockArticles = selectedIndices.map(index => allMockArticles[index]);
-                
-                // Mark these articles as used
-                const newUsedIndices = new Set(this.state.usedArticleIndices);
-                selectedIndices.forEach(index => newUsedIndices.add(index));
-                
-                this.setState({
-                    articles: this.state.articles.concat(finalMockArticles),
-                    page: nextPage,
-                    totalResults: this.state.articles.length + finalMockArticles.length + (availableIndices.length > 4 ? 20 : 0),
-                    usedArticleIndices: newUsedIndices
-                });
-            } else if (availableIndices.length > 0) {
-                // Use remaining unused articles
-                finalMockArticles = availableIndices.map(index => allMockArticles[index]);
-                
-                this.setState({
-                    articles: this.state.articles.concat(finalMockArticles),
-                    page: nextPage,
-                    totalResults: this.state.articles.length + finalMockArticles.length,
-                    usedArticleIndices: new Set([...this.state.usedArticleIndices, ...availableIndices])
-                });
-            } else {
-                // All articles used, create variations
-                finalMockArticles = allMockArticles.slice(0, 4).map((article, index) => ({
+            const finalMockArticles = moreMockArticles.length > 0 ? moreMockArticles : 
+                allMockArticles.slice(0, 4).map((article, index) => ({
                 ...article,
                 title: `${article.title} - Update ${nextPage}`,
                 url: `#page-${nextPage}-${index}`,
                 description: `${article.description} - Latest developments from page ${nextPage}.`
-                }));
-                
-                this.setState({
-                    articles: this.state.articles.concat(finalMockArticles),
-                    page: nextPage,
-                    totalResults: this.state.articles.length + finalMockArticles.length + 20
-                });
-            }
+            }));
+            
+            this.setState({
+                articles: this.state.articles.concat(finalMockArticles),
+                page: nextPage,
+                totalResults: this.state.articles.length + finalMockArticles.length + 20 // Allow more loading
+            });
         }
     }
 
