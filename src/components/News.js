@@ -89,42 +89,6 @@ export class News extends Component {
                     author: "Weather Team",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Weather Central" }
-                },
-                {
-                    title: "Local Community Celebrates Annual Festival",
-                    description: "Thousands gather for the city's biggest cultural celebration of the year",
-                    urlToImage: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Community Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Local News" }
-                },
-                {
-                    title: "Education Reform Bill Passes Legislature",
-                    description: "New legislation promises significant changes to public education system",
-                    urlToImage: "https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Education Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Education Today" }
-                },
-                {
-                    title: "Transportation Infrastructure Gets Major Upgrade",
-                    description: "City announces multi-billion dollar investment in public transportation",
-                    urlToImage: "https://images.pexels.com/photos/378570/pexels-photo-378570.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Infrastructure Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "City News" }
-                },
-                {
-                    title: "Environmental Conservation Efforts Show Results",
-                    description: "Local wildlife population increases thanks to conservation initiatives",
-                    urlToImage: "https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Environmental Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Green News" }
                 }
             ],
             business: [
@@ -145,42 +109,6 @@ export class News extends Component {
                     author: "Business Reporter",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Corporate News" }
-                },
-                {
-                    title: "Startup Raises Record-Breaking Funding Round",
-                    description: "Young company secures largest Series A funding in industry history",
-                    urlToImage: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Startup Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Venture News" }
-                },
-                {
-                    title: "Global Supply Chain Disruptions Continue",
-                    description: "Companies adapt strategies to navigate ongoing logistical challenges",
-                    urlToImage: "https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Supply Chain Expert",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Logistics Today" }
-                },
-                {
-                    title: "Cryptocurrency Market Shows Volatility",
-                    description: "Digital currencies experience significant price fluctuations amid regulatory news",
-                    urlToImage: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Crypto Analyst",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Crypto News" }
-                },
-                {
-                    title: "Retail Sales Surge During Holiday Season",
-                    description: "Consumer spending reaches new highs as holiday shopping peaks",
-                    urlToImage: "https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Retail Analyst",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Retail Report" }
                 }
             ],
             technology: [
@@ -201,42 +129,6 @@ export class News extends Component {
                     author: "Mobile Expert",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Mobile Tech" }
-                },
-                {
-                    title: "Quantum Computing Milestone Achieved",
-                    description: "Researchers demonstrate quantum supremacy in complex calculations",
-                    urlToImage: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Quantum Researcher",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Quantum Tech" }
-                },
-                {
-                    title: "5G Network Expansion Accelerates Globally",
-                    description: "Telecommunications companies roll out next-generation wireless infrastructure",
-                    urlToImage: "https://images.pexels.com/photos/4792728/pexels-photo-4792728.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Telecom Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "5G Today" }
-                },
-                {
-                    title: "Cybersecurity Threats Evolve with New Technology",
-                    description: "Security experts warn of sophisticated attacks targeting emerging technologies",
-                    urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Security Expert",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Cyber Security" }
-                },
-                {
-                    title: "Virtual Reality Gaming Reaches New Heights",
-                    description: "Immersive gaming experiences push the boundaries of virtual reality technology",
-                    urlToImage: "https://images.pexels.com/photos/123335/pexels-photo-123335.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Gaming Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "VR Gaming" }
                 }
             ],
             sports: [
@@ -257,42 +149,6 @@ export class News extends Component {
                     author: "Olympic Correspondent",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Olympic News" }
-                },
-                {
-                    title: "Soccer World Cup Qualifiers Heat Up",
-                    description: "National teams compete for coveted spots in the upcoming World Cup tournament",
-                    urlToImage: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Soccer Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Soccer World" }
-                },
-                {
-                    title: "Basketball Season Reaches Playoff Intensity",
-                    description: "Teams battle for championship positions as regular season concludes",
-                    urlToImage: "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Basketball Analyst",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Hoops Central" }
-                },
-                {
-                    title: "Tennis Grand Slam Tournament Begins",
-                    description: "World's top tennis players compete for prestigious championship title",
-                    urlToImage: "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Tennis Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Tennis Today" }
-                },
-                {
-                    title: "Marathon Running Gains Popularity Worldwide",
-                    description: "Record numbers of participants register for major marathon events globally",
-                    urlToImage: "https://images.pexels.com/photos/2402777/pexels-photo-2402777.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Running Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Marathon News" }
                 }
             ],
             health: [
@@ -313,42 +169,6 @@ export class News extends Component {
                     author: "Health Advocate",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Mental Health News" }
-                },
-                {
-                    title: "Vaccine Development Shows Promising Results",
-                    description: "Clinical trials demonstrate high efficacy rates for new preventive treatment",
-                    urlToImage: "https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Vaccine Researcher",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Vaccine News" }
-                },
-                {
-                    title: "Nutrition Study Reveals Surprising Benefits",
-                    description: "Research shows unexpected health advantages of common dietary choices",
-                    urlToImage: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Nutrition Expert",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Nutrition Today" }
-                },
-                {
-                    title: "Telemedicine Adoption Continues to Grow",
-                    description: "Remote healthcare services become increasingly popular among patients",
-                    urlToImage: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Digital Health Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Telemedicine News" }
-                },
-                {
-                    title: "Exercise Benefits for Aging Population Confirmed",
-                    description: "Long-term study validates importance of physical activity for seniors",
-                    urlToImage: "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Geriatric Specialist",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Senior Health" }
                 }
             ],
             entertainment: [
@@ -369,42 +189,6 @@ export class News extends Component {
                     author: "Music Journalist",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Music News" }
-                },
-                {
-                    title: "Streaming Platform Launches Original Series",
-                    description: "New exclusive content promises to compete with traditional television",
-                    urlToImage: "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Streaming Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Streaming News" }
-                },
-                {
-                    title: "Celebrity Couple Announces Engagement",
-                    description: "Popular actors share exciting news with fans on social media",
-                    urlToImage: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Celebrity Reporter",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Celebrity News" }
-                },
-                {
-                    title: "Gaming Industry Sets New Revenue Records",
-                    description: "Video game sales reach unprecedented levels across all platforms",
-                    urlToImage: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Gaming Analyst",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Gaming Industry" }
-                },
-                {
-                    title: "Broadway Shows Return to Full Capacity",
-                    description: "Theater district celebrates return to normal operations with sold-out performances",
-                    urlToImage: "https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Theater Critic",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Broadway News" }
                 }
             ],
             science: [
@@ -425,48 +209,24 @@ export class News extends Component {
                     author: "Climate Scientist",
                     publishedAt: new Date().toISOString(),
                     source: { name: "Climate News" }
-                },
-                {
-                    title: "Marine Biology Discovery in Deep Ocean",
-                    description: "Scientists find new species in previously unexplored ocean depths",
-                    urlToImage: "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Marine Biologist",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Ocean Science" }
-                },
-                {
-                    title: "Renewable Energy Efficiency Breakthrough",
-                    description: "New solar panel technology achieves record-breaking energy conversion rates",
-                    urlToImage: "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Energy Researcher",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Green Energy" }
-                },
-                {
-                    title: "Archaeological Find Rewrites Ancient History",
-                    description: "Excavation uncovers artifacts that challenge existing historical timelines",
-                    urlToImage: "https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Archaeologist",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Archaeology Today" }
-                },
-                {
-                    title: "Genetic Research Opens New Treatment Possibilities",
-                    description: "Gene therapy trials show promise for treating rare genetic disorders",
-                    urlToImage: "https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=400",
-                    url: "#",
-                    author: "Genetics Researcher",
-                    publishedAt: new Date().toISOString(),
-                    source: { name: "Genetics News" }
                 }
             ]
         };
 
         // Return category-specific articles, or general if category not found
-        return categoryData[this.props.category] || categoryData.general;
+        const articles = categoryData[this.props.category] || categoryData.general;
+        
+        // Add more articles to ensure we have enough content
+        const extendedArticles = [...articles];
+        for (let i = 0; i < 6; i++) {
+            extendedArticles.push({
+                ...articles[i % articles.length],
+                title: `${articles[i % articles.length].title} - Extended ${i + 1}`,
+                url: `#extended-${i}`
+            });
+        }
+        
+        return extendedArticles;
     }
 
     fetchMoreData = async () => {
@@ -486,45 +246,33 @@ export class News extends Component {
                 });
             } else {
                 // If API fails or no more articles, add more mock data
-                const allMockArticles = this.getMockArticles();
-                const startIndex = (nextPage - 2) * 4; // Calculate which articles to show next
-                const endIndex = startIndex + 4;
-                const moreMockArticles = allMockArticles.slice(startIndex, endIndex);
+                const baseMockArticles = this.getMockArticles().slice(0, 4); // Get first 4 articles
+                const moreMockArticles = baseMockArticles.map((article, index) => ({
+                    ...article,
+                    title: `${article.title} - Page ${nextPage}`,
+                    url: `#page-${nextPage}-${index}`
+                }));
                 
-                // If we've run out of unique articles, create variations
-                const finalMockArticles = moreMockArticles.length > 0 ? moreMockArticles : 
-                    allMockArticles.slice(0, 4).map((article, index) => ({
-                        ...article,
-                        title: `${article.title} - Update ${nextPage}`,
-                        url: `#page-${nextPage}-${index}`,
-                        description: `${article.description} - Latest developments from page ${nextPage}.`
-                    }));
                 this.setState({
-                    articles: this.state.articles.concat(finalMockArticles),
+                    articles: this.state.articles.concat(moreMockArticles),
                     page: nextPage,
-                    totalResults: this.state.articles.length + finalMockArticles.length + 20 // Allow more loading
+                    totalResults: this.state.articles.length + moreMockArticles.length + 20 // Allow more loading
                 });
             }
         } catch (error) {
             console.error('Fetch more data error:', error);
             // If fetch fails, add mock data
-            const allMockArticles = this.getMockArticles();
-            const startIndex = (nextPage - 2) * 4;
-            const endIndex = startIndex + 4;
-            const moreMockArticles = allMockArticles.slice(startIndex, endIndex);
-            
-            const finalMockArticles = moreMockArticles.length > 0 ? moreMockArticles : 
-                allMockArticles.slice(0, 4).map((article, index) => ({
+            const baseMockArticles = this.getMockArticles().slice(0, 4); // Get first 4 articles
+            const moreMockArticles = baseMockArticles.map((article, index) => ({
                 ...article,
-                title: `${article.title} - Update ${nextPage}`,
-                url: `#page-${nextPage}-${index}`,
-                description: `${article.description} - Latest developments from page ${nextPage}.`
+                title: `${article.title} - Page ${nextPage}`,
+                url: `#page-${nextPage}-${index}`
             }));
             
             this.setState({
-                articles: this.state.articles.concat(finalMockArticles),
+                articles: this.state.articles.concat(moreMockArticles),
                 page: nextPage,
-                totalResults: this.state.articles.length + finalMockArticles.length + 20 // Allow more loading
+                totalResults: this.state.articles.length + moreMockArticles.length + 20 // Allow more loading
             });
         }
     }
