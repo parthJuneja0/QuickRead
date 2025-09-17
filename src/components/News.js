@@ -251,7 +251,7 @@ export class News extends Component {
                                 <div className="w-24 h-24 mx-auto mb-4 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
                                     <Globe className="w-12 h-12 text-slate-400" />
                                 </div>
-                                <h3 className="text-xl font-medium text-slate-200 mb-2">No articles found</h3>
+                                <h3 className="text-xl font-medium text-white mb-2">No articles found</h3>
                                 <p className="text-slate-400">
                                     We couldn't find any articles in the {categoryTitle.toLowerCase()} category right now.
                                 </p>
