@@ -70,80 +70,163 @@ export class News extends Component {
     }
 
     getMockArticles = () => {
-        return [
-            {
-                title: "Sample News Article 1",
-                description: "This is a sample news article description to demonstrate the app functionality",
-                urlToImage: "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Sample Author",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Sample News" }
-            },
-            {
-                title: "Sample News Article 2",
-                description: "Another sample news article to show multiple articles in the grid layout",
-                urlToImage: "https://images.pexels.com/photos/97050/pexels-photo-97050.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Another Author",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Sample Source" }
-            },
-            {
-                title: "Sample News Article 3",
-                description: "Third sample article demonstrating the news feed functionality",
-                urlToImage: "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Third Author",
-                publishedAt: new Date().toISOString(),
-                source: { name: "News Source" }
-            },
-            {
-                title: "Sample News Article 4",
-                description: "Fourth sample article to fill out the news grid with more content",
-                urlToImage: "https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Fourth Author",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Daily News" }
-            },
-            {
-                title: "Sample News Article 5",
-                description: "Fifth sample article with technology news content",
-                urlToImage: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Tech Reporter",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Tech News" }
-            },
-            {
-                title: "Sample News Article 6",
-                description: "Sixth sample article covering business and finance topics",
-                urlToImage: "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Business Writer",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Business Today" }
-            },
-            {
-                title: "Sample News Article 7",
-                description: "Seventh sample article about health and wellness trends",
-                urlToImage: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Health Expert",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Health Daily" }
-            },
-            {
-                title: "Sample News Article 8",
-                description: "Eighth sample article covering sports and entertainment news",
-                urlToImage: "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400",
-                url: "#",
-                author: "Sports Reporter",
-                publishedAt: new Date().toISOString(),
-                source: { name: "Sports Central" }
-            }
-        ];
+        const categoryData = {
+            general: [
+                {
+                    title: "Breaking: Major Political Development Unfolds",
+                    description: "Latest updates on significant political events affecting the nation",
+                    urlToImage: "https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Political Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "General News" }
+                },
+                {
+                    title: "Weather Alert: Severe Storm Warning Issued",
+                    description: "Meteorologists warn of severe weather conditions expected this week",
+                    urlToImage: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Weather Team",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Weather Central" }
+                }
+            ],
+            business: [
+                {
+                    title: "Stock Market Reaches New Heights",
+                    description: "Major indices show significant gains as investors remain optimistic",
+                    urlToImage: "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Financial Analyst",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Business Today" }
+                },
+                {
+                    title: "Tech Giant Announces Major Acquisition",
+                    description: "Multi-billion dollar deal set to reshape the technology landscape",
+                    urlToImage: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Business Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Corporate News" }
+                }
+            ],
+            technology: [
+                {
+                    title: "Revolutionary AI Breakthrough Announced",
+                    description: "Scientists develop new artificial intelligence system with unprecedented capabilities",
+                    urlToImage: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Tech Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Tech News" }
+                },
+                {
+                    title: "New Smartphone Features Change Everything",
+                    description: "Latest mobile technology promises to revolutionize how we communicate",
+                    urlToImage: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Mobile Expert",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Mobile Tech" }
+                }
+            ],
+            sports: [
+                {
+                    title: "Championship Finals Set Record Viewership",
+                    description: "Millions tune in to watch the most anticipated sporting event of the year",
+                    urlToImage: "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Sports Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Sports Central" }
+                },
+                {
+                    title: "Olympic Preparations Underway",
+                    description: "Athletes from around the world prepare for the upcoming Olympic games",
+                    urlToImage: "https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Olympic Correspondent",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Olympic News" }
+                }
+            ],
+            health: [
+                {
+                    title: "Medical Breakthrough in Cancer Treatment",
+                    description: "New therapy shows promising results in clinical trials",
+                    urlToImage: "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Medical Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Health Today" }
+                },
+                {
+                    title: "Mental Health Awareness Campaign Launches",
+                    description: "New initiative aims to reduce stigma and improve access to mental health services",
+                    urlToImage: "https://images.pexels.com/photos/3912979/pexels-photo-3912979.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Health Advocate",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Mental Health News" }
+                }
+            ],
+            entertainment: [
+                {
+                    title: "Hollywood Blockbuster Breaks Box Office Records",
+                    description: "Latest superhero movie shatters opening weekend expectations",
+                    urlToImage: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Entertainment Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Entertainment Weekly" }
+                },
+                {
+                    title: "Music Festival Lineup Announced",
+                    description: "Top artists confirmed for this summer's biggest music festival",
+                    urlToImage: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Music Journalist",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Music News" }
+                }
+            ],
+            science: [
+                {
+                    title: "Space Mission Discovers New Exoplanet",
+                    description: "Astronomers identify potentially habitable world in distant solar system",
+                    urlToImage: "https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Space Reporter",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Science Daily" }
+                },
+                {
+                    title: "Climate Research Reveals Surprising Findings",
+                    description: "New study provides insights into global climate change patterns",
+                    urlToImage: "https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-soil-60013.jpeg?auto=compress&cs=tinysrgb&w=400",
+                    url: "#",
+                    author: "Climate Scientist",
+                    publishedAt: new Date().toISOString(),
+                    source: { name: "Climate News" }
+                }
+            ]
+        };
+
+        // Return category-specific articles, or general if category not found
+        const articles = categoryData[this.props.category] || categoryData.general;
+        
+        // Add more articles to ensure we have enough content
+        const extendedArticles = [...articles];
+        for (let i = 0; i < 6; i++) {
+            extendedArticles.push({
+                ...articles[i % articles.length],
+                title: `${articles[i % articles.length].title} - Extended ${i + 1}`,
+                url: `#extended-${i}`
+            });
+        }
+        
+        return extendedArticles;
     }
 
     fetchMoreData = async () => {
@@ -163,7 +246,8 @@ export class News extends Component {
                 });
             } else {
                 // If API fails or no more articles, add more mock data
-                const moreMockArticles = this.getMockArticles().map((article, index) => ({
+                const baseMockArticles = this.getMockArticles().slice(0, 4); // Get first 4 articles
+                const moreMockArticles = baseMockArticles.map((article, index) => ({
                     ...article,
                     title: `${article.title} - Page ${nextPage}`,
                     url: `#page-${nextPage}-${index}`
@@ -178,7 +262,8 @@ export class News extends Component {
         } catch (error) {
             console.error('Fetch more data error:', error);
             // If fetch fails, add mock data
-            const moreMockArticles = this.getMockArticles().map((article, index) => ({
+            const baseMockArticles = this.getMockArticles().slice(0, 4); // Get first 4 articles
+            const moreMockArticles = baseMockArticles.map((article, index) => ({
                 ...article,
                 title: `${article.title} - Page ${nextPage}`,
                 url: `#page-${nextPage}-${index}`
