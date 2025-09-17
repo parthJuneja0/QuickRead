@@ -226,38 +226,5 @@ export class News extends Component {
         )
     }
 }
-            }
-        })
-    }
-
-    render() {
-        return (
-            <div className=' my-4'>
-                <h1 className='text-center'>{`News from ${this.props.category} category`}</h1>
-                {this.state.loading && <Spinner />}
-
-                <InfiniteScroll
-                    dataLength={this.state.articles.length}
-                    next={this.fetchMoreData}
-                    hasMore={this.state.articles.length < this.state.totalResults && this.state.totalResults > 0}
-                    loader={<Spinner />}
-                >
-                    <div className="container">
-                        <div className="row">
-                            {!this.state.loading && this.state.articles.map((element) => {
-                                return <div className="col-md-3" key={element.url}>
-                                    <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
-                                </div>
-                            })}
-                        </div>
-                    </div>
-
-                </InfiniteScroll>
-
-            </div>
-
-        )
-    }
-}
 
 export default News
