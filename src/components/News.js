@@ -603,72 +603,34 @@ export class News extends Component {
         }
     }
 
-    fetchMoreData = async () => {
-        const nextPage = this.state.page + 1;
-        
-        try {
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.REACT_APP_API_KEY}&page=${nextPage}&pageSize=${this.props.pageSize}`;
-            let data = await fetch(url);
-            let parsedData = await data.json()
-            console.log(parsedData);
-            
-            if (parsedData.status !== 'error' && parsedData.articles && parsedData.articles.length > 0) {
-                // Filter out duplicate articles from API response
-                const uniqueNewArticles = this.filterDuplicateArticles(parsedData.articles);
-                const updatedSeenArticles = this.addToSeenArticles(uniqueNewArticles);
-                
-                // Only add articles if we have unique ones
-                if (uniqueNewArticles.length > 0) {
-                this.setState({
-                    articles: this.state.articles.concat(parsedData.articles),
-                    totalResults: parsedData.totalResults || 0,
-                    page: nextPage
-                });
-            } else {
-                // If API fails or no more articles, add more mock data
-                const allMockArticles = this.getMockArticles();
-                const availableIndices = [];
-                
-                // Find unused articles
-                for (let i = 0; i < allMockArticles.length; i++) {
-                    if (!this.state.usedArticleIndices.has(i)) {
-                        availableIndices.push(i);
-                    }
-                }
-                
-                let finalMockArticles = [];
-                
-                if (availableIndices.length >= 4) {
-                    // Use next 4 unused articles
-                    const selectedIndices = availableIndices.slice(0, 4);
-                    finalMockArticles = selectedIndices.map(index => allMockArticles[index]);
-                    
-                    // Mark these articles as used
-                    const newUsedIndices = new Set(this.state.usedArticleIndices);
-                    selectedIndices.forEach(index => newUsedIndices.add(index));
-                    
-                    this.setState({
-                        articles: this.state.articles.concat(finalMockArticles),
-                        page: nextPage,
-                        totalResults: this.state.articles.length + finalMockArticles.length + (availableIndices.length > 4 ? 20 : 0),
-                        usedArticleIndices: newUsedIndices
-                    });
-                } else if (availableIndices.length > 0) {
-                    // Use remaining unused articles
-                    finalMockArticles = availableIndices.map(index => allMockArticles[index]);
-                    
-                    this.setState({
-                        articles: this.state.articles.concat(finalMockArticles),
-                        articles: this.state.articles.concat(uniqueNewArticles),
-                        totalResults: this.state.articles.length + finalMockArticles.length,
-            } else {
-                // If API fails or no more articles, add more mock data
-                this.addMockArticles(nextPage);
-                        page: nextPage,
-                        seenArticles: updatedSeenArticles
-                    });
-                } else {
-            this.addMockArticles(nextPage);
+    render() {
+        return (
+            <div>
+                <InfiniteScroll
+                    dataLength={this.state.articles.length}
+                    next={this.fetchMoreData}
+                    hasMore={this.state.articles.length !== this.state.totalResults}
+                    loader={<Spinner />}
+                >
+                    <div className="container">
+                        <div className="row">
+                            {this.state.articles.map((element, index) => {
+                                return <div className="col-md-4" key={`${element.url}-${index}`}>
+                                    <NewsItem
+                                        title={element.title ? element.title.slice(0, 45) : ""}
+                                        description={element.description ? element.description.slice(0, 88) : ""}
+                                        imageUrl={element.urlToImage}
+                                        newsUrl={element.url}
+                                        author={element.author}
+                                        date={element.publishedAt}
+                                        source={element.source.name}
+                                    />
+                                </div>
+                            })}
+                        </div>
+                    </div>
+                </InfiniteScroll>
+            </div>
         )
     }
 }
