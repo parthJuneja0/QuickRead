@@ -118,23 +118,15 @@ export class News extends Component {
                 let parsedData = await data.json()
                 console.log(parsedData);
                 
-                if (parsedData.status !== 'error' && parsedData.articles) {
+                if (parsedData.status !== 'error') {
                     this.setState({
-                        articles: this.state.articles.concat(parsedData.articles),
-                        totalResults: parsedData.totalResults || 0
-                    });
-                } else {
-                    // If API fails, stop infinite scroll by setting totalResults to current length
-                    this.setState({
-                        totalResults: this.state.articles.length
+                        articles: this.state.articles.concat(parsedData.articles || []),
+                        totalResults: parsedData.totalResults || 0,
+                        loading: false
                     });
                 }
             } catch (error) {
                 console.error('Fetch more data error:', error);
-                // If fetch fails, stop infinite scroll
-                this.setState({
-                    totalResults: this.state.articles.length
-                });
             }
         })
     }
@@ -148,7 +140,7 @@ export class News extends Component {
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
-                    hasMore={this.state.articles.length < this.state.totalResults && this.state.totalResults > 0}
+                    hasMore={this.state.articles.length < this.state.totalResults}
                     loader={<Spinner />}
                 >
                     <div className="container">
