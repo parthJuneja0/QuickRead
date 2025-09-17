@@ -604,19 +604,64 @@ export class News extends Component {
     }
 
     render() {
+        const categoryTitles = {
+            general: 'Latest News',
+            business: 'Business News',
+            entertainment: 'Entertainment',
+            health: 'Health & Wellness',
+            science: 'Science & Technology',
+            sports: 'Sports News',
+            technology: 'Technology News'
+        };
+
+        const categoryTitle = categoryTitles[this.props.category] || 'Latest News';
+
         return (
-            <div>
+            <div className="min-h-screen bg-dark-950">
+                {/* Hero Section */}
+                <div className="hero-gradient py-12 mb-8">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center">
+                            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                                {categoryTitle}
+                            </h1>
+                            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                                Stay informed with the latest updates and breaking news from around the world
+                            </p>
+                            <div className="mt-6 flex items-center justify-center space-x-4 text-sm text-gray-400">
+                                <div className="flex items-center space-x-2">
+                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                    <span>Live Updates</span>
+                                </div>
+                                <div className="w-1 h-4 bg-gray-600"></div>
+                                <span>{this.state.articles.length} Articles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length !== this.state.totalResults}
                     loader={<Spinner />}
+                    endMessage={
+                        <div className="text-center py-12">
+                            <div className="inline-flex items-center space-x-2 text-gray-500">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="font-medium">You've reached the end of the news feed</span>
+                            </div>
+                        </div>
+                    }
                 >
-                    <div className="container">
-                        <div className="row">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+                        <div className="news-grid">
                             {this.state.articles.map((element, index) => {
-                                return <div className="col-md-4" key={`${element.url}-${index}`}>
+                                return (
                                     <NewsItem
+                                        key={`${element.url}-${index}`}
                                         title={element.title ? element.title.slice(0, 45) : ""}
                                         description={element.description ? element.description.slice(0, 88) : ""}
                                         imageUrl={element.urlToImage}
@@ -625,7 +670,7 @@ export class News extends Component {
                                         date={element.publishedAt}
                                         source={element.source.name}
                                     />
-                                </div>
+                                )
                             })}
                         </div>
                     </div>
