@@ -22,12 +22,12 @@ export class App extends Component {
 
   render() {
     return (
-      <div className="app-container">
+      <div>
         <Router>
           <Navbar />
           <LoadingBar
             height={3}
-            color='#3b82f6'
+            color='#f11946'
             progress={this.state.progress}
           />
           <Routes>
