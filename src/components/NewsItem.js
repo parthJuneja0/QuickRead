@@ -11,8 +11,17 @@ export class NewsItem extends Component {
         });
     }
 
+    handleReadMore = (e) => {
+        e.preventDefault();
+        // Call the onReadMore function passed from News.js
+        if (this.props.onReadMore) {
+            this.props.onReadMore();
+        }
+    }
+
     render() {
         let { title, description, imageUrl, newsUrl, author, date, source, categoryColor } = this.props;
+
         return (
             <div className="relative bg-slate-800 rounded-2xl shadow-2xl overflow-hidden hover:shadow-slate-700/20 transition-all duration-300 border border-slate-700 group h-full flex flex-col">
                 {/* Source badge */}
@@ -53,16 +62,14 @@ export class NewsItem extends Component {
                         </div>
                     </div>
 
-                    {/* Read more button */}
-                    <a
-                        href={newsUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`inline-flex items-center justify-center space-x-2 bg-gradient-to-r ${categoryColor || 'from-blue-400 to-purple-500'} hover:shadow-lg text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95`}
+                    {/* Read more button - triggers overlay */}
+                    <button
+                        onClick={this.handleReadMore}
+                        className={`inline-flex items-center justify-center space-x-2 bg-gradient-to-r ${categoryColor || 'from-blue-400 to-purple-500'} hover:shadow-lg text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 w-full`}
                     >
-                        <span>Read Article</span>
+                        <span>Read Full Article</span>
                         <ExternalLink className="w-4 h-4" />
-                    </a>
+                    </button>
                 </div>
             </div>
         )

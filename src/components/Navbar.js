@@ -28,7 +28,7 @@ const Navbar = () => {
                             <Newspaper className="w-6 h-6 text-white" />
                         </div>
                         <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                            Daily Newz Dose
+                            QuickRead
                         </span>
                     </a>
 
